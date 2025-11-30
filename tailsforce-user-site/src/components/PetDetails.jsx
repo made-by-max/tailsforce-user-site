@@ -11,7 +11,8 @@ const PetDetails = ({
 }) => {
   return (
     <Wrapper>
-      <h1>{name}</h1>
+      <h1>Pet Deets</h1>
+
       <div>
         <img alt={name} src={image_link} />
       </div>

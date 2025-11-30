@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router";
 
-const PetCard = ({ name, breed, image_link, sex, age }) => {
+const PetCard = ({ name, breed, image_link, sex, age, id }) => {
   return (
     <Wrapper>
       <ImageWrapper>
-        <Image alt={name} src={image_link} />
+        <Link to={`/item/${id}`} key={id}>
+          <Image alt={name} src={image_link} />
+        </Link>
       </ImageWrapper>
 
       <ContentWrapper>
