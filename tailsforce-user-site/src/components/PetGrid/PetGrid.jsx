@@ -4,9 +4,13 @@ import PETS from "../../data";
 import PetCard from "../PetCard";
 
 const PetGrid = () => {
+  function runFilter(species) {
+    window.alert(`Searched for: ${species}`);
+  }
+
   return (
     <>
-      <Filter />
+      <Filter runFilter={runFilter} />
       <div className={styles.wrapper}>
         {PETS.map((pet) => (
           <div className={styles.petWrapper} key={pet.id}>
