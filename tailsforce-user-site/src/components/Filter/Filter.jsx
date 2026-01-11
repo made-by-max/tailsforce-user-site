@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PETS from "../../data";
 
-function Filter({ runFilter }) {
-  const [species, setSpecies] = useState("");
+function Filter({ species, setSpecies }) {
   const [speciesOptions, setSpeciesOptions] = useState([]);
 
   useEffect(() => {
@@ -12,7 +11,7 @@ function Filter({ runFilter }) {
 
   return (
     <>
-      <form onSubmit={runFilter(species)}>
+      <form>
         <label htmlFor="species-select">Species</label>
 
         <select

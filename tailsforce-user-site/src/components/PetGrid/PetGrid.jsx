@@ -1,18 +1,29 @@
+import React, { useState, useEffect } from "react";
 import styles from "./PetGrid.module.css";
-import Filter from "../Filter";
 import PETS from "../../data";
 import PetCard from "../PetCard";
 
-const PetGrid = () => {
-  function runFilter(species) {
-    window.alert(`Searched for: ${species}`);
-  }
+const PetGrid = ({ species }) => {
+  const [petData, setPetData] = useState([]);
+
+  useEffect(() => {
+    setPetData(PETS);
+  }, []);
+
+  // Filter pets based on the species prop
+  const filteredPets = petData.filter((pet) => {
+    // If species is "all" or empty, show all pets
+    if (species === "all" || !species) {
+      return true;
+    }
+    // Otherwise, show only pets that match the selected species
+    return pet.species === species;
+  });
 
   return (
     <>
-      <Filter runFilter={runFilter} />
       <div className={styles.wrapper}>
-        {PETS.map((pet) => (
+        {filteredPets.map((pet) => (
           <div className={styles.petWrapper} key={pet.id}>
             <PetCard {...pet} />
           </div>
@@ -21,5 +32,4 @@ const PetGrid = () => {
     </>
   );
 };
-
 export default PetGrid;

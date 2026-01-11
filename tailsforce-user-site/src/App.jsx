@@ -1,5 +1,5 @@
 import "./App.css";
-import PetGrid from "./components/PetGrid/PetGrid";
+import PetHome from "./pages/PetHome";
 import TopNav from "./components/TopNav";
 
 export default function App() {
@@ -7,7 +7,7 @@ export default function App() {
     <div className="App">
       <>
         <TopNav />
-        <PetGrid />
+        <PetHome />
       </>
     </div>
   );
