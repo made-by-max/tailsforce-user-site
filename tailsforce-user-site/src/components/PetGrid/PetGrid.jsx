@@ -3,7 +3,7 @@ import styles from "./PetGrid.module.css";
 import PETS from "../../data";
 import PetCard from "../PetCard";
 
-const PetGrid = ({ species }) => {
+const PetGrid = ({ species, sex }) => {
   const [petData, setPetData] = useState([]);
 
   useEffect(() => {
@@ -13,11 +13,18 @@ const PetGrid = ({ species }) => {
   // Filter pets based on the species prop
   const filteredPets = petData.filter((pet) => {
     // If species is "all" or empty, show all pets
-    if (species === "all" || !species) {
+    if (species === "all" && sex === "all") {
       return true;
     }
+
+    if (species === "all") {
+      return pet.sex === sex;
+    }
+    if (sex === "all") {
+      return pet.species === species;
+    }
     // Otherwise, show only pets that match the selected species
-    return pet.species === species;
+    return pet.species === species && pet.sex === sex;
   });
 
   return (

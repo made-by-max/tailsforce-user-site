@@ -4,10 +4,16 @@ import Filter from "../components/Filter";
 
 const PetHome = () => {
   const [species, setSpecies] = useState("all");
+  const [sex, setSex] = useState("all");
   return (
     <>
-      <Filter species={species} setSpecies={setSpecies} />
-      <PetGrid species={species} />
+      <Filter
+        species={species}
+        setSpecies={setSpecies}
+        sex={sex}
+        setSex={setSex}
+      />
+      <PetGrid species={species} sex={sex} />
     </>
   );
 };
